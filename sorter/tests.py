@@ -203,6 +203,11 @@ class SortlinkTests(SorterTestCase):
             """{% sortlink with "test" by "creation_date,-title" %}Creation and title{% endsortlink %}""",
             """I am a pretty custom template but i feel ignored.""")
 
+    def test_template_ordering(self):
+        self.assertViewRenders(
+            """{% sortlink with "order_test" by "title" "-title" %}Title{% endsortlink %}""",
+            """()""")
+
 
 class SortFormTests(SorterTestCase):
 
